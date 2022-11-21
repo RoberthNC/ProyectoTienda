@@ -1,0 +1,67 @@
+.contenedor-login{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $rosado;
+}
+
+.contenedor{
+    border-radius: 1rem;
+    width: 100%;
+    height: 60vh;
+    background-color: $blanco;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 3rem;
+
+    @include Computadora{
+        width: 45%;
+    }
+}
+
+.login-titulo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.formulario{
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.5rem;
+
+    .contenedor-campos{
+        display: flex;
+        flex-direction: column;
+        row-gap: 1rem;
+
+        label{
+            font-size: 2rem;
+        }
+
+        input{
+            width: 100%;
+            border-radius: 5px;
+            padding: 5px;
+            font-size: 2rem;
+        }
+    }
+
+    .contenedor-boton{
+        margin-top: 2rem    ;
+        display: flex;
+        justify-content: center;
+
+        input[type=submit]{
+            border-radius: 5px;
+            font-size: 1.8rem;
+            padding: 5px;
+        }
+    }
+}

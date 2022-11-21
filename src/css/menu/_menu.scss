@@ -1,0 +1,51 @@
+.contenedor-secciones{
+    padding: 2rem;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+
+    @include Computadora{
+        padding: 4rem 2rem;
+        flex-direction: row;
+        justify-content: space-around;
+        column-gap: 3rem;
+    }
+
+    .seccion{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 1rem;
+        border: 2px solid black;
+        padding: 3rem 1rem;
+    }
+}
+
+.contenedor-ordenar-ventas{
+    border: 2px solid black;
+    padding: 2rem;
+
+    .contenedor-ordenar{
+        display: flex;
+        align-items: center;
+        column-gap: 2rem;
+        margin-bottom: 3rem;
+
+        label{
+            font-size: 1.8rem;
+        }
+
+        select{
+            border-radius: 5px;
+            padding: 5px;
+        }
+    }
+
+    .contenedor-mostrar{
+        font-size: 1.8rem;
+        fieldset{
+            border-radius: 5px;
+        }
+    }
+}

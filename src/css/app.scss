@@ -1,0 +1,14 @@
+@import "base/variables";
+@import "base/globales";
+@import "base/mixins";
+@import "base/utilidades";
+
+@import "login/login";
+@import "layouts/menuprincipal";
+@import "menu/menu";
+@import "categoria/categoria";
+@import "layouts/tabla";
+@import "categoria/formulariocategoria";
+
+@import "producto/producto";
+@import "producto/formularioproducto";

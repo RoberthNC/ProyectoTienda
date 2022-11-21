@@ -1,0 +1,11 @@
+@mixin Computadora{
+    @media(min-width: $sizecomputadora){
+        @content;
+    }
+}
+
+@mixin Celular{
+    @media(min-width: $sizecelular){
+        @content;
+    }
+}

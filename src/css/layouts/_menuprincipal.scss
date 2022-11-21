@@ -1,0 +1,101 @@
+.contenedor-pagina{
+    
+    height: 100vh;
+    width: 100%;
+
+    @include Computadora{
+        display: grid;
+        grid-template-columns: 1fr 4fr;
+    }
+}
+
+.sidebar{
+
+    border: 2px solid darken($rosado,50%);
+    background-color: $rosado;
+    padding: 2rem 0;
+
+    .sidebar__enlaces{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        row-gap: 1rem;
+
+        @include Computadora{
+            margin-top: 10rem;
+        }
+
+        a{
+            border: 2px solid black;
+            background-color: darken($rosado,10%);
+            color: white;
+            font-size: 18px;
+            padding: 0.5rem 0;
+            font-weight: 800;
+            transition-property: all;
+            transition-duration: 300ms;
+            &:hover{
+                background-color: darken($rosado,20%);
+            }
+
+            @include Computadora{
+                border: none;
+                padding: 2rem 0;
+                font-size: 2.2rem;
+            }
+        }
+    }
+
+    .sidebar__titulo{
+        color: darken($rosado,40%);
+        margin-bottom: 2rem;
+        h1{
+            margin: 0;
+        }
+    }
+}
+
+.main{
+    background-color: lighten($color: $gris, $amount: 40%);
+
+    .contenedor-barra{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 1rem;
+        padding: 2rem 0;
+        border: 2px solid $negro;
+
+        .contenedor-barra__user{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            column-gap: 1rem;
+            padding: 1rem;
+
+            p{
+                font-size: 2rem;
+            }
+        }
+
+        .contenedor-barra_enlace{
+            font-size: 1.8rem;
+            padding: 1rem;
+            border: 2px solid $negro;
+            &:hover{
+                transition-property: all;
+                transition-duration: 300ms;
+                background-color: yellow;
+            }
+        }
+
+        @include Computadora{
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 2rem 3rem;
+            gap: 2rem;
+    
+        }
+    }
+}

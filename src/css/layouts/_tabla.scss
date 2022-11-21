@@ -1,0 +1,30 @@
+.contenedor-tabla{
+    padding: 2rem 3rem;
+    border: 2px solid black;
+
+    .tabla{
+        border-collapse: collapse;
+        width: 100%;
+
+        th{
+            font-size: 1.8rem;
+            border: 1px solid black;
+            text-align: center;
+
+            &:nth-last-of-type(2),&:nth-last-of-type(1){
+                border: none;
+            }
+        }
+
+        td{
+            font-size: 1.8rem;
+            text-align: center;
+            border: 1px solid black;
+
+            // &:nth-last-of-type(2),&:nth-last-of-type(1){
+            //     border: none;
+            // }
+        }
+        
+    }
+}

@@ -1,0 +1,88 @@
+.contenedor-agregar-producto{
+    padding: 2rem 3rem;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    @include Computadora{
+        justify-content: flex-end;
+    }
+    
+    .agregar-producto{
+        border: 2px solid black;
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+
+        @include Computadora{
+            width: 15%;
+        }
+
+        a{
+            font-size: 1.8rem;
+        }
+    }
+}
+
+.contenedor-filtrar-producto{
+    padding: 2rem 3rem;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 4rem;
+
+    @include Computadora{
+        flex-direction: row;
+        column-gap: 6rem;
+    }
+
+    .contenedor-buscar-producto{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 2rem;
+
+        @include Computadora{
+            flex-direction: row;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        input[type=text]{
+            width: 100%;
+            font-size: 1.8rem;
+            border-radius: 5px;
+            padding: 1rem;
+        }
+
+        select{
+            font-size: 1.8rem;
+            border-radius: 5px;
+            padding: 1rem;
+            width: 50%;
+        }
+
+        input[type=submit]{
+            font-size: 1.8rem;
+            border-radius: 5px;
+            padding: 1rem;
+        }
+    }
+
+    .contenedor-ordenar-producto{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        label{
+            font-size: 1.8rem;
+        }
+        select{
+            font-size: 1.8rem;
+            border-radius: 5px;
+            padding: 1rem;
+        }
+    }
+}
