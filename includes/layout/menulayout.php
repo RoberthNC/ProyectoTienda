@@ -21,7 +21,7 @@
                 <a href="#">Ventas</a>
                 <a href="./categoria.php">Categorías</a>
                 <a href="./productos.php">Productos</a>
-                <a href="#">Proveedores</a>
+                <a href="./proveedores.php">Proveedores</a>
                 <a href="#">Usuarios</a>
             </nav>
         </div>
