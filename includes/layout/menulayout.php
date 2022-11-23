@@ -23,6 +23,7 @@
                 <a href="./productos.php">Productos</a>
                 <a href="./proveedores.php">Proveedores</a>
                 <a href="#">Usuarios</a>
+                <a href="./compras.php">Compras</a>
             </nav>
         </div>
         <main class="main">
