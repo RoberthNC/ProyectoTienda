@@ -1,5 +1,16 @@
-<h1>Eliminar Productos</h1>
-
 <?php
-    echo "El id a eliminar es " . $_GET["id"];
+
+    require "./includes/funciones/conexion.php";
+    require "./includes/funciones/funciones.php";
+
+    $conn = ConexionBD();
+
+    $id = $_GET["id"];
+
+    $query = "DELETE FROM Producto WHERE idProducto='$id'";
+
+    mysqli_query($conn,$query);
+
+    header("Location: ./productos.php");
+
 ?>
