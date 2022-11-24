@@ -27,11 +27,17 @@
 
             if($resultados->num_rows>0){
                 $resultados = mysqli_fetch_assoc($resultados);
-                
+                $id_usuario = $resultados['idUsuario'];
+                $consulta =mysqli_query($conn,"SELECT * FROM administrador WHERE idUsuario = '$id_usuario'");
                 session_start();
                 $_SESSION["id_usuario"] = $resultados["idUsuario"];
                 $_SESSION["nombre_usuario"] = $resultados["nombre"];
-
+                if($consulta->num_rows>0){
+                    $_SESSION["cargo"]="admin";
+                }
+                else{
+                    $_SESSION["cargo"]="empleado";
+                }
                 header("Location: ./menuprincipal.php");
             }
         }

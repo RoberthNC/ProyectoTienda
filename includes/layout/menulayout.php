@@ -18,11 +18,13 @@
                 <h1>NOVEDADES IVANNA</h1>
             </div>
             <nav class="sidebar__enlaces">
-                <a href="#">Ventas</a>
+                <a href="./ventas.php">Ventas</a>
                 <a href="./categoria.php">Categorías</a>
                 <a href="./productos.php">Productos</a>
                 <a href="./proveedores.php">Proveedores</a>
-                <a href="#">Usuarios</a>
+                <?php if($_SESSION['cargo']==='admin'){?>
+                <a href="./usuarios.php">Usuarios</a>
+                <?php }?>
             </nav>
         </div>
         <main class="main">
