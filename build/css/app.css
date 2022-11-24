@@ -583,7 +583,7 @@ p {
   border-radius: 5px;
   font-size: 1.8rem;
 }
-.contenedor-formulario-producto .formulario .contenedor-campos-producto input[type=text], .contenedor-formulario-producto .formulario .contenedor-campos-producto input[type=tel] {
+.contenedor-formulario-producto .formulario .contenedor-campos-producto input[type=text], .contenedor-formulario-producto .formulario .contenedor-campos-producto input[type=tel], .contenedor-formulario-producto .formulario .contenedor-campos-producto input[type=email], .contenedor-formulario-producto .formulario .contenedor-campos-producto input[type=password] {
   padding: 1rem;
   border-radius: 5px;
   font-size: 1.8rem;
