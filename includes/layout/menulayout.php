@@ -25,6 +25,7 @@
                 <?php if($_SESSION['cargo']==='admin'){?>
                 <a href="./usuarios.php">Usuarios</a>
                 <?php }?>
+                <a href="./compras.php">Compras</a>
             </nav>
         </div>
         <main class="main">
