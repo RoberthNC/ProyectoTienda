@@ -7,8 +7,8 @@
     $buscador = $_POST["buscar"];
     $filtro = $_POST["filtro"];
     $vacio = [];
-
-    $query = "SELECT * FROM Producto WHERE $filtro='$buscador'";
+    
+    $query = "SELECT * FROM Producto WHERE $filtro LIKE '$buscador'";
 
     $resultados = mysqli_query($conn,$query);
 

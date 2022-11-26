@@ -1,5 +1,16 @@
 <?php
 ob_start();
+
+
+require "./includes/funciones/conexion.php";
+require "./includes/funciones/funciones.php";
+
+$conn = ConexionBD();
+
+$query = "SELECT Compra.idCompra as idCompra, Usuario.nombre as nombre, Compra.montototal as montototal, Compra.fecha as fecha FROM Compra LEFT JOIN Usuario ON Compra.idUsuario=Usuario.idUsuario;";
+
+$resultados = mysqli_query($conn,$query);
+
 ?>
 
 <div class="contenedor-agregar-producto">
@@ -19,7 +30,7 @@ ob_start();
         <thead>
             <tr>
                 <th>ID COMPRA</th>
-                <th>NOMBRE USUARIO</th>
+                <th>ID USUARIO</th>
                 <th>MONTO TOTAL</th>
                 <th>FECHA</th>
                 <th></th>
@@ -27,7 +38,25 @@ ob_start();
             </tr>
         </thead>
         <tbody id="tbody">
+            <?php
+                if($resultados->num_rows>0){
+
+                    while($row = mysqli_fetch_assoc($resultados)){
+
+            ?>
             
+            <tr>
+                <td><?php echo $row["idCompra"];?></td>
+                <td><?php echo $row["nombre"];?></td>
+                <td><?php echo $row["montototal"];?></td>
+                <td><?php echo $row["fecha"];?></td>
+            </tr>
+
+            <?php
+                    }
+
+                }
+            ?>
         </tbody>
     </table>
 </div>

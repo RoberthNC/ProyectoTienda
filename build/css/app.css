@@ -344,6 +344,24 @@ p {
   border: 1px solid black;
 }
 
+.contenedor-proveedor {
+  padding: 2rem 3rem;
+  border: 2px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 1rem;
+}
+.contenedor-proveedor label {
+  font-size: 1.8rem;
+}
+.contenedor-proveedor select {
+  font-size: 1.8rem;
+  border-radius: 5px;
+  padding: 1rem;
+  width: 15%;
+}
+
 .contenedor-carrito {
   border: 2px solid black;
   display: flex;

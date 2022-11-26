@@ -13,5 +13,8 @@
     "gulp-plumber": "^1.2.1",
     "gulp-sass": "^5.1.0",
     "sass": "^1.55.0"
+  },
+  "dependencies": {
+    "install": "^0.13.0"
   }
 }

@@ -3,7 +3,6 @@ ob_start();
 
 require "./includes/funciones/conexion.php";
 require "./includes/funciones/funciones.php";
-session_start();
 $conn = ConexionBD();
 $query = "SELECT producto.idProducto, producto.nombre, producto.precio, producto.cantidad, categoria.nombre FROM producto INNER JOIN categoria ON producto.idCategoria=categoria.idCategoria;";
 $resultados = mysqli_query($conn,$query);
