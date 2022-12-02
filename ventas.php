@@ -4,7 +4,11 @@ ob_start();
 require "./includes/funciones/conexion.php";
 require "./includes/funciones/funciones.php";
 
+$conn = ConexionBD();
 
+$query = "SELECT Venta.idVenta as idVenta, Usuario.nombre as nombre, Venta.montototal as montototal, Venta.fecha as fecha FROM Venta LEFT JOIN Usuario ON Venta.idUsuario=Usuario.idUsuario";
+
+$resultados = mysqli_query($conn,$query);
 
 ?>
 
@@ -20,44 +24,38 @@ require "./includes/funciones/funciones.php";
     </div>
 </div>
 
-<form method="POST">
-<div class="contenedor-filtrar-categoria">
-    <div class="contenedor-buscar-categoria">
-        <input type="text" placeholder="Buscar" id="buscador">
-        <select id="filtro" name="filtro">
-            <option value="idUsuario">Id</option>
-            <option value="nombre">Nombre</option>
-            <option value="dni">DNI</option>
-        </select>
-
-        <input type="submit" value="Buscar" id="submit">
-    </div>
-
-    <div class="contenedor-ordenar-categoria">
-        <label>Ordenar por:</label>
-        <select id="orden" name="orden">
-            <option value="DESC">Mayor a menor</option>
-            <option value="ASC">Menor a mayor</option>
-        </select>
-    </div>
-</div>
-</form>
-
 <div class="contenedor-tabla">
     <table class="tabla">
         <thead>
             <tr>
                 <th>ID</th>
                 <th>NOMBRE</th>
-                <th>CORREO</th>
-                <th>DNI</th>
-                <th>CARGO</th>
+                <th>MONTO TOTAL</th>
+                <th>FECHA</th>
                 <th></th>
                 <th></th>
             </tr>
         </thead>
         <tbody id="tbody">
+        <?php
+                if($resultados->num_rows>0){
+
+                    while($row = mysqli_fetch_assoc($resultados)){
+
+            ?>
             
+            <tr>
+                <td><?php echo $row["idVenta"];?></td>
+                <td><?php echo $row["nombre"];?></td>
+                <td><?php echo $row["montototal"];?></td>
+                <td><?php echo $row["fecha"];?></td>
+            </tr>
+
+            <?php
+                    }
+
+                }
+            ?>
         </tbody>
     </table>
 </div>

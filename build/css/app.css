@@ -141,8 +141,15 @@ p {
 .sidebar .sidebar__titulo {
   color: #f3002a;
   margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.sidebar .sidebar__titulo h1 {
+.sidebar .sidebar__titulo a {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #f3002a;
   margin: 0;
 }
 
@@ -619,4 +626,164 @@ p {
   font-size: 1.8rem;
   border-radius: 5px;
   padding: 1rem;
+}
+
+.contenedor-datos-usuario {
+  border: 2px solid black;
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 2.5rem;
+}
+@media (min-width: 1200px) {
+  .contenedor-datos-usuario {
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 2rem 3rem;
+  }
+}
+.contenedor-datos-usuario .datos_usuario a {
+  padding: 1rem;
+  border: 2px solid black;
+}
+
+.titulo_historial {
+  border: 2px solid black;
+  padding: 2rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (min-width: 1200px) {
+  .titulo_historial {
+    padding: 2rem 3rem;
+    justify-content: flex-start;
+  }
+}
+
+.contenedor_ventas_usuario {
+  border: 2px solid black;
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 2rem;
+}
+@media (min-width: 1200px) {
+  .contenedor_ventas_usuario {
+    flex-direction: row;
+    padding: 2rem 3rem;
+    column-gap: 1rem;
+  }
+}
+
+.buscador_venta input[type=text] {
+  padding: 1rem;
+  border-radius: 5px;
+  font-size: 1.8rem;
+}
+
+.filtro_venta select {
+  padding: 1rem;
+  border-radius: 5px;
+  font-size: 1.8rem;
+}
+
+.texto_ordenar label {
+  font-size: 2rem;
+}
+
+.ordenar_venta select {
+  padding: 1rem;
+  border-radius: 5px;
+  font-size: 1.8rem;
+}
+
+.filtrar_ventas button {
+  border-radius: 5px;
+  font-size: 1.8rem;
+  padding: 5px;
+}
+
+.contenedor_ventas_contra {
+  border: 2px solid black;
+  padding: 2rem 0;
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+}
+@media (min-width: 1200px) {
+  .contenedor_ventas_contra {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: none;
+    padding: 2rem 3rem;
+  }
+}
+.contenedor_ventas_contra .tabla_ventas {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.contenedor_ventas_contra .tabla_ventas .tabla {
+  align-self: flex-start;
+  border-collapse: collapse;
+  width: 70%;
+}
+.contenedor_ventas_contra .tabla_ventas .tabla th {
+  font-size: 1.8rem;
+  border: 1px solid black;
+  text-align: center;
+}
+.contenedor_ventas_contra .tabla_ventas .tabla td {
+  font-size: 1.8rem;
+  text-align: center;
+  border: 1px solid black;
+}
+.contenedor_ventas_contra .div_actualizar {
+  display: flex;
+  justify-content: center;
+}
+.contenedor_ventas_contra .div_actualizar .formulario {
+  padding: 1.5rem;
+  border: 2px solid black;
+  border-radius: 5px;
+  display: flex;
+  row-gap: 2rem;
+}
+.contenedor_ventas_contra .div_actualizar .formulario .contra_actual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 1rem;
+}
+.contenedor_ventas_contra .div_actualizar .formulario .contra_actual label {
+  font-size: 2rem;
+}
+.contenedor_ventas_contra .div_actualizar .formulario .contra_actual input[type=text] {
+  padding: 1rem;
+  border-radius: 5px;
+  font-size: 1.8rem;
+}
+.contenedor_ventas_contra .div_actualizar .formulario .contra_nueva {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 1rem;
+}
+.contenedor_ventas_contra .div_actualizar .formulario .contra_nueva label {
+  font-size: 2rem;
+}
+.contenedor_ventas_contra .div_actualizar .formulario .contra_nueva input[type=text] {
+  padding: 1rem;
+  border-radius: 5px;
+  font-size: 1.8rem;
+}
+.contenedor_ventas_contra .div_actualizar .formulario .guardar {
+  display: flex;
+  justify-content: center;
+}
+.contenedor_ventas_contra .div_actualizar .formulario .guardar input[type=submit] {
+  padding: 1rem;
+  border-radius: 5px;
+  font-size: 1.8rem;
 }

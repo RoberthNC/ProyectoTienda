@@ -49,7 +49,14 @@
     .sidebar__titulo{
         color: darken($rosado,40%);
         margin-bottom: 2rem;
-        h1{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        a{
+            text-align: center;
+            font-size: 3rem;
+            font-weight: bold;
+            color: darken($rosado,40%);
             margin: 0;
         }
     }

@@ -7,7 +7,26 @@ require "./includes/funciones/funciones.php";
 
 $conn = ConexionBD();
 
-$query = "SELECT Compra.idCompra as idCompra, Usuario.nombre as nombre, Compra.montototal as montototal, Compra.fecha as fecha FROM Compra LEFT JOIN Usuario ON Compra.idUsuario=Usuario.idUsuario;";
+$band = false;
+
+$query = "SELECT Compra.idCompra as idCompra, Proveedor.razonSocial as proveedor, Compra.montototal as montototal, Compra.fecha as fecha FROM Compra INNER JOIN Proveedor ON Compra.idProveedor=Proveedor.idProveedor";
+
+if($_SERVER["REQUEST_METHOD"]==="POST"){
+
+    $band = true;
+
+    $buscador = $_POST["buscador"];
+    $filtro = $_POST["filtro"];
+    $orden = $_POST["orden"];
+
+    //Caso 1
+    if($buscador==""){
+        $query = "SELECT Compra.idCompra as idCompra, Proveedor.razonSocial as proveedor, Compra.montototal as montototal, Compra.fecha as fecha FROM Compra INNER JOIN Proveedor ON Compra.idProveedor=Proveedor.idProveedor ORDER BY Compra.$filtro $orden";
+    }
+    else{
+        $query = "SELECT Compra.idCompra as idCompra, Proveedor.razonSocial as proveedor, Compra.montototal as montototal, Compra.fecha as fecha FROM Compra INNER JOIN Proveedor ON Compra.idProveedor=Proveedor.idProveedor WHERE Compra.$filtro='$buscador' ORDER BY Compra.idCompra DESC";
+    }
+}
 
 $resultados = mysqli_query($conn,$query);
 
@@ -25,12 +44,34 @@ $resultados = mysqli_query($conn,$query);
     </div>
 </div>
 
+<form method="POST">
+<div class="contenedor-filtrar-categoria">
+    <div class="contenedor-buscar-categoria">
+        <input type="text" placeholder="Buscar" id="buscador" name="buscador">
+        <select id="filtro" name="filtro">
+            <option value="idCompra">Id</option>
+            <option value="fecha">Fecha</option>
+        </select>
+
+        <input type="submit" value="Buscar" id="submit">
+    </div>
+
+    <div class="contenedor-ordenar-categoria">
+        <label>Ordenar por:</label>
+        <select id="orden" name="orden">
+            <option value="DESC">Mayor a menor</option>
+            <option value="ASC">Menor a mayor</option>
+        </select>
+    </div>
+</div>
+</form>
+
 <div class="contenedor-tabla">
     <table class="tabla">
         <thead>
             <tr>
                 <th>ID COMPRA</th>
-                <th>ID USUARIO</th>
+                <th>PROVEEDOR</th>
                 <th>MONTO TOTAL</th>
                 <th>FECHA</th>
                 <th></th>
@@ -39,6 +80,10 @@ $resultados = mysqli_query($conn,$query);
         </thead>
         <tbody id="tbody">
             <?php
+
+            //Caso sin filtros ni buscadores
+            if($band===false){
+
                 if($resultados->num_rows>0){
 
                     while($row = mysqli_fetch_assoc($resultados)){
@@ -47,7 +92,7 @@ $resultados = mysqli_query($conn,$query);
             
             <tr>
                 <td><?php echo $row["idCompra"];?></td>
-                <td><?php echo $row["nombre"];?></td>
+                <td><?php echo $row["proveedor"];?></td>
                 <td><?php echo $row["montototal"];?></td>
                 <td><?php echo $row["fecha"];?></td>
             </tr>
@@ -56,7 +101,31 @@ $resultados = mysqli_query($conn,$query);
                     }
 
                 }
+
+            }
+
+            else{
+                //Caso con filtros y buscadores
+
+                if($resultados->num_rows>0){
+
+                    while($row = mysqli_fetch_assoc($resultados)){
             ?>
+
+            <tr>
+                <td><?php echo $row["idCompra"];?></td>
+                <td><?php echo $row["proveedor"];?></td>
+                <td><?php echo $row["montototal"];?></td>
+                <td><?php echo $row["fecha"];?></td>
+            </tr>
+            
+            <?php
+                    }
+                }
+
+            }
+            ?>
+
         </tbody>
     </table>
 </div>

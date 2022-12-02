@@ -34,15 +34,16 @@
                 $_SESSION["nombre_usuario"] = $resultados["nombre"];
                 if($consulta->num_rows>0){
                     $_SESSION["cargo"]="admin";
+                    $_SESSION["rol"]="ADMINISTRADOR";
                 }
                 else{
                     $_SESSION["cargo"]="empleado";
+                    $_SESSION["rol"]="EMPLEADO";
                 }
                 header("Location: ./menuprincipal.php");
             }
         }
     ?>
-
     <div class="contenedor-login">
         <div class="contenedor">
             <div class="login-titulo">

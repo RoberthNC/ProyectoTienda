@@ -15,7 +15,7 @@
     <div class="contenedor-pagina">
         <div class="sidebar">
             <div class="sidebar__titulo">
-                <h1>NOVEDADES IVANNA</h1>
+                <a href="./menuprincipal.php">NOVEDADES IVANNA</a>
             </div>
             <nav class="sidebar__enlaces">
                 <a href="./ventas.php">Ventas</a>
@@ -39,7 +39,7 @@
 </svg>
 <p><?php echo $nombreUsuario;?></p>
                 </div>
-                <a href="" class="contenedor-barra_enlace">Mi Cuenta</a>
+                <a href="./micuenta.php" class="contenedor-barra_enlace">Mi Cuenta</a>
                 <a href="./index.php" class="contenedor-barra_enlace">Cerrar Sesión</a>
             </div>
             <?php
