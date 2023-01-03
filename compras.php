@@ -23,8 +23,9 @@ if($_SERVER["REQUEST_METHOD"]==="POST"){
     if($buscador==""){
         $query = "SELECT Compra.idCompra as idCompra, Proveedor.razonSocial as proveedor, Compra.montototal as montototal, Compra.fecha as fecha FROM Compra INNER JOIN Proveedor ON Compra.idProveedor=Proveedor.idProveedor ORDER BY Compra.$filtro $orden";
     }
+    //Caso 2
     else{
-        $query = "SELECT Compra.idCompra as idCompra, Proveedor.razonSocial as proveedor, Compra.montototal as montototal, Compra.fecha as fecha FROM Compra INNER JOIN Proveedor ON Compra.idProveedor=Proveedor.idProveedor WHERE Compra.$filtro='$buscador' ORDER BY Compra.idCompra DESC";
+        $query = "SELECT Compra.idCompra as idCompra, Proveedor.razonSocial as proveedor, Compra.montototal as montototal, Compra.fecha as fecha FROM Compra INNER JOIN Proveedor ON Compra.idProveedor=Proveedor.idProveedor WHERE Compra.$filtro='$buscador' ORDER BY Compra.$filtro $orden";
     }
 }
 

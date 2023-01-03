@@ -6,7 +6,27 @@ require "./includes/funciones/funciones.php";
 
 $conn = ConexionBD();
 
+$band = false;
+
 $query = "SELECT Venta.idVenta as idVenta, Usuario.nombre as nombre, Venta.montototal as montototal, Venta.fecha as fecha FROM Venta LEFT JOIN Usuario ON Venta.idUsuario=Usuario.idUsuario";
+
+if($_SERVER["REQUEST_METHOD"]==="POST"){
+
+    $band = true;
+
+    $buscador = $_POST["buscador"];
+    $filtro = $_POST["filtro"];
+    $orden = $_POST["orden"];
+
+    //Caso 1
+    if($buscador==""){
+        $query = "SELECT Venta.idVenta as idVenta, Usuario.nombre as nombre, Venta.montototal as montototal, Venta.fecha as fecha FROM Venta LEFT JOIN Usuario ON Venta.idUsuario=Usuario.idUsuario ORDER BY Venta.$filtro $orden";
+    }
+    //Caso 2
+    else{
+        $query = "SELECT Venta.idVenta as idVenta, Usuario.nombre as nombre, Venta.montototal as montototal, Venta.fecha as fecha FROM Venta LEFT JOIN Usuario ON Venta.idUsuario=Usuario.idUsuario WHERE Venta.$filtro='$buscador' ORDER BY Venta.$filtro $orden";
+    }
+}
 
 $resultados = mysqli_query($conn,$query);
 
@@ -24,6 +44,28 @@ $resultados = mysqli_query($conn,$query);
     </div>
 </div>
 
+<form method="POST">
+<div class="contenedor-filtrar-categoria">
+    <div class="contenedor-buscar-categoria">
+        <input type="text" placeholder="Buscar" id="buscador" name="buscador">
+        <select id="filtro" name="filtro">
+            <option value="idVenta">Id</option>
+            <option value="fecha">Fecha</option>
+        </select>
+
+        <input type="submit" value="Buscar" id="submit">
+    </div>
+
+    <div class="contenedor-ordenar-categoria">
+        <label>Ordenar por:</label>
+        <select id="orden" name="orden">
+            <option value="DESC">Mayor a menor</option>
+            <option value="ASC">Menor a mayor</option>
+        </select>
+    </div>
+</div>
+</form>
+
 <div class="contenedor-tabla">
     <table class="tabla">
         <thead>
@@ -37,7 +79,10 @@ $resultados = mysqli_query($conn,$query);
             </tr>
         </thead>
         <tbody id="tbody">
-        <?php
+            <?php
+
+            if($band==false){
+
                 if($resultados->num_rows>0){
 
                     while($row = mysqli_fetch_assoc($resultados)){
@@ -55,6 +100,30 @@ $resultados = mysqli_query($conn,$query);
                     }
 
                 }
+
+            }
+
+            else{
+
+            //Caso con filtros y buscadores
+
+            if($resultados->num_rows>0){
+
+                while($row = mysqli_fetch_assoc($resultados)){
+
+            }
+            ?>
+
+            <tr>
+                <td><?php echo $row["idVenta"];?></td>
+                <td><?php echo $row["nombre"];?></td>
+                <td><?php echo $row["montototal"];?></td>
+                <td><?php echo $row["fecha"];?></td>
+            </tr>
+
+            <?php
+                }
+            }
             ?>
         </tbody>
     </table>
